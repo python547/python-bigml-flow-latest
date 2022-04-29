@@ -1,0 +1,9 @@
+name: tutorial
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pip
+  - pip:
+      - bigml>=7.3.0
+      - mlflow>=1.25.2.dev0
