@@ -49,4 +49,4 @@ Please follow the next steps:
   1. Fork the project on github.com.
   2. Create a new branch.
   3. Commit changes to the new branch.
-  4. Send a `pull request <https://github.com/bigmlcom/bigmlflow/pulls>`_.
+  4. Send a [pull request](https://github.com/bigmlcom/bigmlflow/pulls).
