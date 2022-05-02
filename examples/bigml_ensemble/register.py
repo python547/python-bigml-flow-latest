@@ -2,7 +2,8 @@ import warnings
 import json
 import os
 
-import mlflow.bigml
+import bigmlflow
+import mlflow
 
 import logging
 
@@ -43,4 +44,4 @@ if __name__ == "__main__":
             "Registering BigML ensemble: %s\nconf: %s (%s)"
             % (ensemble["object"]["name"], ensemble["object"]["name_options"], ensemble["resource"])
         )
-        mlflow.bigml.log_model(ensemble_info, "model")
+        bigmlflow.log_model(ensemble_info, "model")

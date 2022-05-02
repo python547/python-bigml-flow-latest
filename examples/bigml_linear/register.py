@@ -1,7 +1,8 @@
 import warnings
 import json
 
-import mlflow.bigml
+import bigmlflow
+import mlflow
 
 import logging
 
@@ -22,13 +23,10 @@ if __name__ == "__main__":
             "Registering BigML linear regression: %s\nconf: %s (%s)"
             % (model["object"]["name"], model["object"]["name_options"], model["resource"])
         )
-        mlflow.bigml.log_model(model, "model")
+        bigmlflow.log_model(model, "model")
         """
         Testing example:
-        curl -d '{"columns":["citric acid", "volatile acidity", "chlorides", \
-                             "free sulfur dioxide","total sulfur dioxide", \
-                             "pH", "sulphates", "alcohol"], \
-                  "data":[[1,1,1,1,1,1,1,1]]}' \
+        curl -d '{"columns":["citric acid", "volatile acidity", "chlorides", "free sulfur dioxide","total sulfur dioxide", "pH", "sulphates", "alcohol"], "data":[[1,1,1,1,1,1,1,1]]}' \
              -H 'Content-Type: application/json; format=pandas-split' \
              -X POST localhost:5000/invocations
         """

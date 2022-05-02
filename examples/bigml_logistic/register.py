@@ -1,7 +1,7 @@
 import warnings
 import json
 
-import bigmlflow.bigml as bigml
+import bigmlflow
 import mlflow
 
 import logging
@@ -23,7 +23,7 @@ if __name__ == "__main__":
             "Registering BigML logistic regression: %s\nconf: %s (%s)"
             % (model["object"]["name"], model["object"]["name_options"], model["resource"])
         )
-        bigml.log_model(model, "model")
+        bigmlflow.log_model(model, "model")
         """
         Testing example:
         curl -d '{"columns":["plasma glucose"], "data":[[90], [220]]}' \

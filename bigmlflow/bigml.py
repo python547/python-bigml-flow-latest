@@ -56,7 +56,7 @@ def get_default_pip_requirements():
              Calls to :func:`save_model()` and :func:`log_model()` produce a pip environment
              that, at minimum, contains these requirements.
     """
-    return [_get_pinned_requirement("bigml")]
+    return [_get_pinned_requirement("bigmlflow")]
 
 
 def get_default_conda_env():

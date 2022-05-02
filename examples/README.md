@@ -1,8 +1,8 @@
-### MLflow BigML Examples
+### BigML - MLFlow Examples
 
-The examples in this directory illustrate how you can use the `mlflow.bigml`
-to generate models, log evaluation metrics and deploy the different Supervised
-Models avaiable in the BigML platform.
+The examples in this directory illustrate how you can use `MLFlow`
+to generate `BigML` models, log evaluation metrics and deploy the different
+Supervised Models available in the `BigML` platform.
 
 - `bigml_train\train.py` will create a Decision Tree in BigML and evaluate it.
   The data is extracted from the `Diabetes dataset`, that has been published
@@ -23,9 +23,8 @@ Models avaiable in the BigML platform.
 
 #### Prerequisites
 
-```
-pip install bigml
-```
+Installing this `bigmlflow` library should install both `mlflow` and `bigml`
+bindings, which are the only prerequisites.
 
 NOTE: In order to run the `bigml_train\train.py` script, you need
 an active account in BigML and your credentials should be stored as
@@ -47,7 +46,7 @@ python bigml_ensemble\register.py
 ```
 
 The `{conf}` optional argument for the
-`bigml_train\train.py` script accepts a json string describing the
+`bigml_train\train.py` script accepts a JSON string describing the
 configuration arguments for the model creation. E.g:
 
 ```
