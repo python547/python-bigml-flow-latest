@@ -1,4 +1,4 @@
-### BigML - MLFlow Examples
+### BigMLFlow Examples
 
 The examples in this directory illustrate how you can use `MLFlow`
 to generate `BigML` models, log evaluation metrics and deploy the different
@@ -27,11 +27,13 @@ Installing this `bigmlflow` library should install both `mlflow` and `bigml`
 bindings, which are the only prerequisites.
 
 NOTE: In order to run the `bigml_train\train.py` script, you need
-an active account in BigML and your credentials should be stored as
-environment variables
+an active account in [BigML](https://bigml.com) and your credentials
+(username and [API key](https://bigml.com/account/apikey))
+should be stored as environment variables
 [https://bigml.readthedocs.io/en/latest/index.html?highlight=authentication#authentication](https://bigml.readthedocs.io/en/latest/index.html?highlight=authentication#authentication)
-to be able to connect and use the service. You can sign in BigML at
-[https://bigml.com/account/register](`https://bigml.com/account/register`).
+to be able to connect and use the service. You can sign in `BigML` at
+[https://bigml.com/account/register](https://bigml.com/account/register) and
+reproduce these examples using a free account.
 
 
 #### How to run the examples
