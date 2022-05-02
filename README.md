@@ -11,5 +11,6 @@ to predict anywhere. The `bigmlflow` library uses
 to integrate with `MLFlow` tracking and deploying capacities.
 
 The [examples/README.md](./examples/README.md) file shows a few use cases
+that cover some of the Supervised Models available in BigML and
 a full training example to demo the logging and tracking of `BigML's models`
 using `MLFlow`.
