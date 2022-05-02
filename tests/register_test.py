@@ -29,8 +29,10 @@ from bigml.supervised import SupervisedModel
 from bigml.fields import Fields
 
 
-MODELS_PATH = os.path.join(str(Path(pkg_resources.resource_filename(
-    "bigmlflow", ".")).parents[0]), "tests/models")
+MODELS_PATH = os.path.join(
+    str(Path(pkg_resources.resource_filename("bigmlflow", ".")).parents[0]),
+    "tests/models",
+)
 
 
 def _res_filename(file):
@@ -43,7 +45,9 @@ def _local_model_check(model, examples, model_path):
     predictions = [local_model.predict(example, full=True) for example in examples]
     save_model(model, path=model_path)
     loaded_model = load_model(model_path)
-    loaded_model_predictions = [loaded_model.predict(example, full=True) for example in examples]
+    loaded_model_predictions = [
+        loaded_model.predict(example, full=True) for example in examples
+    ]
     for index, prediction in enumerate(predictions):
         assert prediction == loaded_model_predictions[index]
 

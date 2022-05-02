@@ -76,7 +76,11 @@ if __name__ == "__main__":
         api.ok(evaluation)
         print(
             "BigML model: %s\nconf: %s (%s)"
-            % (model["object"]["name"], model["object"]["name_options"], model["resource"])
+            % (
+                model["object"]["name"],
+                model["object"]["name_options"],
+                model["resource"],
+            )
         )
         print("accuracy: %s" % evaluation_metric(evaluation, "accuracy"))
         print("precision: %s" % evaluation_metric(evaluation, "average_precision"))
@@ -84,7 +88,9 @@ if __name__ == "__main__":
 
         mlflow.log_param("args", json.dumps(model_conf))
         mlflow.log_metric("accuracy", evaluation_metric(evaluation, "accuracy"))
-        mlflow.log_metric("precision", evaluation_metric(evaluation, "average_precision"))
+        mlflow.log_metric(
+            "precision", evaluation_metric(evaluation, "average_precision")
+        )
         mlflow.log_metric("recall", evaluation_metric(evaluation, "average_recall"))
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
@@ -92,6 +98,8 @@ if __name__ == "__main__":
         if tracking_url_type_store != "file":
 
             # Register the model
-            bigmlflow.log_model(model, "model", registered_model_name="BigML_Diabetes_dt")
+            bigmlflow.log_model(
+                model, "model", registered_model_name="BigML_Diabetes_dt"
+            )
         else:
             bigmlflow.log_model(model, "model")

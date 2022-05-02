@@ -46,8 +46,8 @@ from mlflow.utils.environment import (
     _CONDA_ENV_FILE_NAME,
     _REQUIREMENTS_FILE_NAME,
     _CONSTRAINTS_FILE_NAME,
-    #_PYTHON_ENV_FILE_NAME,
-    #_PythonEnv,
+    # _PYTHON_ENV_FILE_NAME,
+    # _PythonEnv,
 )
 from mlflow.utils.requirements_utils import _get_pinned_requirement
 from mlflow.utils.file_utils import (
@@ -178,7 +178,10 @@ def save_model(
         code=code_dir_subpath,
     )
     mlflow_model.add_flavor(
-        FLAVOR_NAME, bigml_version=bigml.__version__, model_path=model_path, code=code_dir_subpath
+        FLAVOR_NAME,
+        bigml_version=bigml.__version__,
+        model_path=model_path,
+        code=code_dir_subpath,
     )
     mlflow_model.save(os.path.join(path, MLMODEL_FILE_NAME))
 
@@ -286,7 +289,9 @@ def _load_model(path):
     path = os.path.abspath(path)
     with open(os.path.join(path, "MLmodel")) as f:
         params = yaml.safe_load(f.read())
-    model_path = os.path.join(path, params.get("flavors").get("bigml").get("model_path"))
+    model_path = os.path.join(
+        path, params.get("flavors").get("bigml").get("model_path")
+    )
 
     with open(model_path, "rb") as f:
         return pickle.load(f)
@@ -335,8 +340,12 @@ def load_model(model_uri, dst_path=None):
     :return: A `SupervisedModel model object
              <https://bigml.readthedocs.io/en/latest/local_resources.html#local-supervised-model>`_.
     """
-    local_model_path = _download_artifact_from_uri(artifact_uri=model_uri, output_path=dst_path)
-    flavor_conf = _get_flavor_configuration(model_path=local_model_path, flavor_name=FLAVOR_NAME)
+    local_model_path = _download_artifact_from_uri(
+        artifact_uri=model_uri, output_path=dst_path
+    )
+    flavor_conf = _get_flavor_configuration(
+        model_path=local_model_path, flavor_name=FLAVOR_NAME
+    )
     _add_code_from_conf_to_system_path(local_model_path, flavor_conf)
     # Flavor configurations for models saved in MLflow version <= 0.8.0 may not contain a
     # `data` key; in this case, we assume the model artifact path to be in the same directory

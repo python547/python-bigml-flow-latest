@@ -37,7 +37,11 @@ if __name__ == "__main__":
     with mlflow.start_run():
         print(
             "Registering BigML logistic regression: %s\nconf: %s (%s)"
-            % (model["object"]["name"], model["object"]["name_options"], model["resource"])
+            % (
+                model["object"]["name"],
+                model["object"]["name_options"],
+                model["resource"],
+            )
         )
         bigmlflow.log_model(model, "model")
         """

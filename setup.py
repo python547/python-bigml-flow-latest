@@ -23,16 +23,15 @@ from setuptools import setup
 project_path = os.path.dirname(__file__)
 
 # Read the version from bigml.__version__ without importing the package
-version_py_path = os.path.join(project_path, 'bigmlflow', 'version.py')
-version = re.search("__version__ = '([^']+)'",
-                    open(version_py_path).read()).group(1)
+version_py_path = os.path.join(project_path, "bigmlflow", "version.py")
+version = re.search("__version__ = '([^']+)'", open(version_py_path).read()).group(1)
 
 # Concatenate files into the long description
 file_contents = []
-for file_name in ('README.md', 'HISTORY.md'):
+for file_name in ("README.md", "HISTORY.md"):
     path = os.path.join(os.path.dirname(__file__), file_name)
     file_contents.append(open(path).read())
-long_description = '\n\n'.join(file_contents)
+long_description = "\n\n".join(file_contents)
 
 
 setup(
@@ -46,18 +45,18 @@ setup(
     download_url="https://github.com/bigmlcom/bigmlflow",
     license="http://www.apache.org/licenses/LICENSE-2.0",
     python_requires=">=3.7",
-    install_requires = ["mlflow>1.25.0", "bigml"],
-    extras_require = {"test": ["pytest"]},
-    packages = ["bigmlflow"],
+    install_requires=["mlflow>1.25.0", "bigml"],
+    extras_require={"test": ["pytest"]},
+    packages=["bigmlflow"],
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
-        'Natural Language :: English',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Topic :: Software Development :: Libraries :: Python Modules',
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: Apache Software License",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    test_suite='tests'
+    test_suite="tests",
 )

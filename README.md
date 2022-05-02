@@ -34,10 +34,10 @@ We use `Pytest` to run the tests, so you can install it separately
     pip install pytest
 ```
 
-or as an extra
+or as an extra for development and testing purposes
 
 ```bash
-    pip install bigmlflow[tests]
+    pip install -e .[tests]
 ```
 
 
