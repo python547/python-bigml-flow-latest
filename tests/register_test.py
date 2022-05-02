@@ -4,18 +4,21 @@ import json
 import pkg_resources
 import pandas as pd
 
+from pathlib import Path
+
 from mlflow import pyfunc
-from bigml_mlflow import save_model, load_model
+from bigmlflow.bigml import save_model, load_model
 
 from bigml.supervised import SupervisedModel
 from bigml.fields import Fields
 
 
-MODELS_PATH = "../tests/models"
+MODELS_PATH = os.path.join(str(Path(pkg_resources.resource_filename(
+    "bigmlflow", ".")).parents[0]), "tests/models")
 
 
 def _res_filename(file):
-    return pkg_resources.resource_filename("mlflow", os.path.join(MODELS_PATH, file))
+    return os.path.join(MODELS_PATH, file)
 
 
 def _local_model_check(model, examples, model_path):
@@ -95,16 +98,13 @@ def model_path(tmpdir):
     return os.path.join(str(tmpdir), "model")
 
 
-@pytest.mark.large
 def test_logistic_save_load(diabetes_logistic, diabetes_examples, model_path):
     _local_model_check(diabetes_logistic, diabetes_examples, model_path)
 
 
-@pytest.mark.large
 def test_linear_save_load(wines_linear, wines_examples, model_path):
     _local_model_check(wines_linear, wines_examples, model_path)
 
 
-@pytest.mark.large
 def test_ensemble_save_load(diabetes_ensemble, diabetes_examples, model_path):
     _local_model_check(diabetes_ensemble, diabetes_examples, model_path)

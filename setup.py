@@ -47,7 +47,7 @@ setup(
     license="http://www.apache.org/licenses/LICENSE-2.0",
     python_requires=">=3.7",
     install_requires = ["mlflow>1.25.0", "bigml"],
-    tests_require = ["pytest"],
+    extras_require = {"test": ["pytest"]},
     packages = ["bigmlflow"],
     classifiers=[
         'Development Status :: 4 - Beta',
