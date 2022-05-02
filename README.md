@@ -1,6 +1,8 @@
-# bigmlflow
-Library for the integration and deployment of [BigML](https://bigml.com) models
-using [MLFlow](https://mlflow.org/).
+# BigMLFlow
+
+This library defines the connectors needed for the integration and
+deployment of [BigML](https://bigml.com) models using
+[MLFlow](https://mlflow.org/).
 
 ## Introduction
 
@@ -14,3 +16,37 @@ The [examples/README.md](./examples/README.md) file shows a few use cases
 that cover some of the Supervised Models available in BigML and
 a full training example to demo the logging and tracking of `BigML's models`
 using `MLFlow`.
+
+## Installation
+
+This library is available as a Pypi package. To install it, just run:
+
+```bash
+    pip install bigmlflow
+```
+
+## Tests
+
+The `tests` directory contains some tests for the logging of models.
+We use `Pytest` to run the tests, so you can install it separately
+
+```bash
+    pip install pytest
+```
+
+or as an extra
+
+```bash
+    pip install bigmlflow[tests]
+```
+
+
+How to Contribute
+-----------------
+
+Please follow the next steps:
+
+  1. Fork the project on github.com.
+  2. Create a new branch.
+  3. Commit changes to the new branch.
+  4. Send a `pull request <https://github.com/bigmlcom/bigmlflow/pulls>`_.
