@@ -24,7 +24,7 @@ project_path = os.path.dirname(__file__)
 
 # Read the version from bigml.__version__ without importing the package
 version_py_path = os.path.join(project_path, "bigmlflow", "version.py")
-version = re.search("__version__ = '([^']+)'", open(version_py_path).read()).group(1)
+version = re.search('__version__ = "([^"]+)"', open(version_py_path).read()).group(1)
 
 # Concatenate files into the long description
 file_contents = []
