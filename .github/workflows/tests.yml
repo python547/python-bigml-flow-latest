@@ -16,7 +16,7 @@ jobs:
     - name: Install packages
       uses: actions/checkout@v2
     - run: |
-        pip install .
+        pip install .[test]
 
     - name: Run Tests
       run: |
